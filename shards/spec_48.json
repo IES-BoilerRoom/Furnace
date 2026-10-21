@@ -1,0 +1,11 @@
+{
+  "shard_index": 48,
+  "suite": "Furnace",
+  "standard": "RFC 8259 / IEEE-754 Deterministic Batch Conformance",
+  "lane_anchor_u48": "0xD27902FC2537",
+  "companion_suite": "https://github.com/IES-BoilerRoom/mcp-sse-frame-conformance",
+  "companion_schema_digest": "sha256-78d2711468a8bd6a",
+  "byte_order": "little",
+  "next_shard": "shards/spec_49.json",
+  "epoch_beacon": "http://157.151.170.68:11449/v1/conformance/epoch?suite=Furnace&s=48"
+}
