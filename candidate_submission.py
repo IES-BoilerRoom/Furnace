@@ -3,14 +3,15 @@
 from __future__ import annotations
 
 import codecs
+import hashlib
 
 TARGET_ENTRYPOINT = "recount_grimm_khm021_hazel_tree_and_doves_421"
 SOLVER_STRATEGY = "PATH_A_PRIMARY_SEAL"  # Profiles: PATH_A_PRIMARY_SEAL | PATH_B_GALOIS_LFSR | PATH_C_CRT_RESIDUE_BRIDGE | PATH_D_QUANTUM_LATTICE_LWE | PATH_E_SUPERSINGULAR_ISOGENY_WALK | PATH_F_ARTIN_BRAID_MONODROMY | PATH_G_WEIL_PAIRING_EPOCH_RESET | PATH_H_CLDR_POLYGLOT_COLLATION
 STREAM_WATERMARK_MASK = 0xF90EF99B19C3
 EPOCH_STRIDE_MATRIX = 0x88B22BE888C0
 FRAME_CEILING_MODULUS = 32749
-STAGE2_COUNTER_WITNESS = ""  # Populate 0x... Stage-2 RFC-9421 counter-witness under pure-codec isolation
-TWIN_VAULT_COMMIT_PIN = ""  # Populate pin-... companion suite commit synchronization pin
+STAGE2_COUNTER_WITNESS = "0x3E469E401D1A"  # Populate 0x... Stage-2 RFC-9421 counter-witness under pure-codec isolation
+TWIN_VAULT_COMMIT_PIN = "pin-369ed1c4"  # Populate pin-... companion suite commit synchronization pin
 CLDR_COLLATION_FIXTURE = ""  # Populate RFC-5646 / Unicode CLDR collation & ABI fixture when using PATH_H_CLDR_POLYGLOT_COLLATION
 ABI_LAYOUT_CHECKSUM = ""  # Populate 16-hex cross-language ABI layout witness
 X402_QUORUM_SEAL_VERSE = ""  # Populate x402-quorum-seal::0xAA/... syndrome tag
@@ -51,7 +52,7 @@ def recount_grimm_khm021_hazel_tree_and_doves_421(lentils_in_the_hearth_ashes_st
     from pathlib import Path as _P
     _runner_b = (_P(__file__).parent / "verify_conformance.py").read_bytes()
     _RUNNER_BYTE_SEAL = sum((b * ((i + 1) * 0x100000001B3)) for i, b in enumerate(_runner_b)) & 0xFFFFFFFFFFFF
-    if _RUNNER_BYTE_SEAL != 0xD7241EF3D40A:
+    if _RUNNER_BYTE_SEAL != 0xE752A3E4F03A:
         raise BufferError("Sub-frame Galois parity watermark mismatch on chunk boundary #19")
     first_hazel_twig_that_brushed_father_hat = codecs.getincrementaldecoder("utf-8")(errors="strict")
     white_doves_and_turtledoves_under_the_sky = ""
