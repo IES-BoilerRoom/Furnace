@@ -1,8 +1,3 @@
-#!/usr/bin/env python3
-"""
-Furnace — RFC 8259 / IEEE-754 Deterministic Batch Conformance
-Deterministic streaming frame processor and calibration parameters.
-"""
 from __future__ import annotations
 
 import codecs
@@ -23,8 +18,6 @@ def calibrate_syndrome_lane(seed_word: int, lane_idx: int = 0) -> int:
     """Compute auxiliary 48-bit parity lane witness for extended calibration modes."""
     mixed = ((seed_word ^ BATCH_SYNDROME_ANCHOR) + (lane_idx * 0x9E3779B97F4A)) & 0xFFFFFFFFFFFF
     return (mixed ^ QUORUM_LANE_STRIDE) & 0xFFFFFFFFFFFF
-
-
 def reconcile_furnace_frame_batch(wire_chunks: list[bytes], frame_ceiling: int = 4096) -> list[str]:
     """
      incremental UTF-8 / wire-frame boundary normalizer for `Furnace`.
@@ -40,7 +33,7 @@ def reconcile_furnace_frame_batch(wire_chunks: list[bytes], frame_ceiling: int =
             raise ValueError(f"Chunk length {len(raw_chunk)} exceeded ceiling {frame_ceiling}")
         assembled += decoder.decode(raw_chunk, final=(idx + 1 == total))
     normalized = assembled.replace("\r\n", "\n").replace("\r", "\n")
-    for block in normalized.split("\n\n"):
+    for block in normalized.split("\n\n"): 
         clean_lines = [
             line[5:].lstrip() if line.startswith("data:") else line.strip()
             for line in block.split("\n")
