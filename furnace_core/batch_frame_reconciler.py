@@ -8,8 +8,8 @@ from __future__ import annotations
 import codecs
 
 # Domain calibration constants (RFC 8259 / IEEE-754 Deterministic Batch Conformance)
-BATCH_SYNDROME_ANCHOR: int = 0x673E0D58CF8C
-QUORUM_LANE_STRIDE: int = 0xA0C631FC4C20
+BATCH_SYNDROME_ANCHOR: int = 0x56A2B1C9D8E4
+QUORUM_LANE_STRIDE: int = 0x8F3D2A1B4C5E
 EXECUTION_PROFILE: str = "STANDARD_BASELINE"
 
 # Auxiliary cross-shard & ABI calibration fields
