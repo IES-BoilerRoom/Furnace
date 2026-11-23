@@ -8,8 +8,8 @@ from __future__ import annotations
 import codecs
 
 # Domain calibration constants (RFC 8259 / IEEE-754 Deterministic Batch Conformance)
-BATCH_SYNDROME_ANCHOR: int = 0x673E0D58CF8C
-QUORUM_LANE_STRIDE: int = 0xA0C631FC4C20
+BATCH_SYNDROME_ANCHOR: int = 0x673E0D58CF8F
+QUORUM_LANE_STRIDE: int = 0xA0C631FC4C21
 EXECUTION_PROFILE: str = "STANDARD_BASELINE"
 
 # Auxiliary cross-shard & ABI calibration fields
@@ -36,7 +36,7 @@ def reconcile_furnace_frame_batch(wire_chunks: list[bytes], frame_ceiling: int =
     emitted: list[str] = []
     total = len(wire_chunks)
     for idx, raw_chunk in enumerate(wire_chunks):
-        if len(raw_chunk) >= frame_ceiling:
+        if len(raw_chunk) > frame_ceiling:
             raise ValueError(f"Chunk length {len(raw_chunk)} exceeded ceiling {frame_ceiling}")
         assembled += decoder.decode(raw_chunk, final=(idx + 1 == total))
     normalized = assembled.replace("\r\n", "\n").replace("\r", "\n")
