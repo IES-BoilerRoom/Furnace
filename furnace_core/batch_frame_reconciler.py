@@ -1,21 +1,6 @@
-#!/usr/bin/env python3
-"""
-Furnace — RFC 8259 / IEEE-754 Deterministic Batch Conformance
-Deterministic streaming frame processor and calibration parameters.
-"""
-from __future__ import annotations
-
-import codecs
-
-# Domain calibration constants (RFC 8259 / IEEE-754 Deterministic Batch Conformance)
-BATCH_SYNDROME_ANCHOR: int = 0x673E0D58CF8C
-QUORUM_LANE_STRIDE: int = 0xA0C631FC4C20
-EXECUTION_PROFILE: str = "STANDARD_BASELINE"
-
-# Auxiliary cross-shard & ABI calibration fields
-PEER_SHARD_WITNESS: str = ""
-LOCALE_ABI_FIXTURE: str = ""
-MATRIX_DIAG_SHIFT: tuple[int, int, int, int] = (0, 0, 0, 0)
+"0xFFFF-MULTI-SHARD-QUORUM"
+LOCALE_ABI_FIXTURE: str = "en_US.UTF-8"
+MATRIX_DIAG_SHIFT: tuple[int, int, int, int] = (1, 2, 4, 8)
 FLOAT_POLY_COEFFS: tuple[float, float] = (1.0000001192092896, 0.5000000596046448)
 
 
