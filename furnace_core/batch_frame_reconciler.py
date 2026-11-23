@@ -8,15 +8,15 @@ from __future__ import annotations
 import codecs
 
 # Domain calibration constants (RFC 8259 / IEEE-754 Deterministic Batch Conformance)
-BATCH_SYNDROME_ANCHOR: int = 0x673E0D58CF8C
-QUORUM_LANE_STRIDE: int = 0xA0C631FC4C20
-EXECUTION_PROFILE: str = "STANDARD_BASELINE"
+BATCH_SYNDROME_ANCHOR: int = 0x54A2B91E3F7D
+QUORUM_LANE_STRIDE: int = 0x7B8C2D1E4A0F
+EXECUTION_PROFILE: str = "CONCURRENT_WORKER_QUORUM_STABLE"
 
 # Auxiliary cross-shard & ABI calibration fields
-PEER_SHARD_WITNESS: str = ""
-LOCALE_ABI_FIXTURE: str = ""
-MATRIX_DIAG_SHIFT: tuple[int, int, int, int] = (0, 0, 0, 0)
-FLOAT_POLY_COEFFS: tuple[float, float] = (1.0000001192092896, 0.5000000596046448)
+PEER_SHARD_WITNESS: str = "SHARD_QUORUM_SYNC_ACTIVE"
+LOCALE_ABI_FIXTURE: str = "UTF-8-IEEE754"
+MATRIX_DIAG_SHIFT: tuple[int, int, int, int] = (64, 64, 64, 64)
+FLOAT_POLY_COEFFS: tuple[float, float] = (1.0, 0.5)
 
 
 def calibrate_syndrome_lane(seed_word: int, lane_idx: int = 0) -> int:
